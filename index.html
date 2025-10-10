@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тамерлан & Ясмина | Приглашение на свадьбу</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <!-- 2GIS Map API -->
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <div id="entry-screen" class="entry-screen">
+        <div class="entry-content">
+            <h2 class="entry-title">Тамерлан & Ясмина</h2>
+            <span id="entry-trigger" class="entry-trigger">Открыть волшебное приглашение</span>
+        </div>
+    </div>
+
+    <div id="music-control" class="music-control">
+        <svg class="icon-sound-on" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <svg class="icon-sound-off" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9"x2="23" y2="15"></line></svg>
+    </div>
+
+    <header class="hero">
+        <img src="photo_5341489142447602236_y.png" alt="Тамерлан & Ясмина" class="hero-bg-img">
+        <div class="hero-content">
+            <h2 class="couple-names" id="couple-names-heading"></h2>
+        </div>
+    </header>
+
+    <main>
+        <section class="date-section">
+            <h3 class="section-title" data-animated>Дата Свадьбы</h3>
+            <p class="wedding-date text-with-bg">25 Октября 2025 год</p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="countdown-section">
+            <h3 class="section-title" data-animated>До события</h3>
+            <div id="timer" class="countdown-timer">
+                <div class="timer-block"><span id="days">00</span><span class="timer-label">Дней</span></div>
+                <div class="timer-block"><span id="hours">00</span><span class="timer-label">Часов</span></div>
+                <div class="timer-block"><span id="minutes">00</span><span class="timer-label">Минут</span></div>
+                <div class="timer-block"><span id="seconds">00</span><span class="timer-label">Секунд</span></div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="story-section">
+            <h3 class="section-title" data-animated>Мы</h3>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="IMG_8288.jpeg" alt="История Тамерлана & Ясмины 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_8287.jpeg" alt="История Тамерлана & Ясмины 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_8289.jpeg" alt="История Тамерлана & Ясмины 3">
+                </div>
+            </div>
+            <p class="story-text text-with-bg">Разделяя одну мечту на двоих,  решили соединить наши сердца. Будем рады видеть вас на нашем празднике любви.</p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="program-section">
+            <h3 class="section-title" data-animated>Программа Дня</h3>
+            <div class="timeline">
+                <div class="timeline-event">
+                    <span class="event-time">17:00</span>
+                    <span class="event-description">Сбор гостей и фуршет</span>
+                </div>
+                <div class="timeline-event">
+                    <span class="event-time">17:30</span>
+                    <span class="event-description">Регистрация</span>
+                </div>
+                <div class="timeline-event">
+                    <span class="event-time">18:00</span>
+                    <span class="event-description">Банкет и развлекательная программа</span>
+                </div>
+                <div class="timeline-event">
+                    <span class="event-time">23:00</span>
+                    <span class="event-description">Праздничный торт</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="details-section">
+            <div class="details-column">
+                <h4 class="details-title" data-animated>Дресс-код</h4>
+                <p class="text-with-bg">Мы будем благодарны, если вы выберете наряды в вечернем стиле, придерживаясь нашей цветовой палитры.</p>
+                <div class="color-palette">
+                    <span class="color-swatch" style="background-color: #7D9BB4;"></span>
+                    <span class="color-swatch" style="background-color: #C09878;"></span>
+                    <span class="color-swatch" style="background-color: #D6B2AA;"></span>
+                    <span class="color-swatch" style="background-color: #3E3B39;"></span>
+                    <span class="color-swatch" style="background-color: #9BAC90;"></span>
+                </div>
+            </div>
+            <div class="details-column">
+                <h4 class="details-title" data-animated>Подарки</h4>
+                <p class="text-with-bg">В этот день цветы нам не нужны — зал расцветёт вами.<br><br>Ваше присутствие — наш главный подарок. Если вы желаете сделать нам еще один приятный сюрприз, мы будем рады вашим пожеланиям в конвертах.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="rsvp-section" class="new-rsvp-section">
+            <h3 class="section-title" data-animated>Подтвердите свое присутствие</h3>
+            <form id="rsvp-form" class="rsvp-form">
+                <div class="form-group">
+                    <label for="guest-names">Ваши имена и фамилии</label>
+                    <input type="text" id="guest-names" name="guest-names" placeholder="Например: фамилия (обязательно) Тамерлан и Ясмина" required>
+                </div>
+                <div class="form-group-buttons">
+                    <button type="button" class="rsvp-choice-button" data-choice="attending">Мы придем</button>
+                    <button type="button" class="rsvp-choice-button" data-choice="not_attending">Не сможем</button>
+                </div>
+                <input type="hidden" id="attendance-choice" name="attendance-choice" value="">
+                <button type="submit" class="rsvp-submit-button">Отправить</button>
+            </form>
+            <div id="rsvp-message" class="rsvp-message" style="display: none;">
+                <!-- Success/error message will be inserted here -->
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="location-section">
+            <h3 class="section-title" data-animated>Место Проведения</h3>
+            <div class="venue-container">
+                <svg class="venue-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <p class="venue-name"><span>Банкетный зал</span> <span>"Premier Hall"</span></p>
+            </div>
+            <a href="https://2gis.kz/almaty/firm/70000001024247901" target="_blank" class="address-link">2ГИС ссылка</a>
+            <p class="full-address">улица Умурзакова, 76, Алматы</p>
+            <div id="map" class="map-wrapper">
+                <!-- 2GIS Map will be initialized here by script.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>С любовью и нетерпением ждём нашей встречи!</p>
+        <p class="couple-names-footer">Тамерлан & Ясмина</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <audio id="background-music" loop muted>
+        <source src="music/background.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Instructional Modal -->
+    <div id="instruction-modal" class="instruction-modal">
+        <div class="instruction-modal-content">
+            <p>Пролистайте вниз, чтобы подтвердить свое присутствие</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg width="150" height="30" viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#B4886B" stroke-width="2">
+  <path d="M0 30 Q 75 10, 150 30 T 300 30" stroke-dasharray="5, 5" stroke-linecap="round"/>
+  <path d="M110 30 Q 125 20, 140 30" stroke-width="1.5"/>
+  <path d="M160 30 Q 175 40, 190 30" stroke-width="1.5"/>
+  <path d="M50 30 Q 60 25, 70 30" stroke-width="1"/>
+  <path d="M230 30 Q 240 35, 250 30" stroke-width="1"/>
+</svg>
