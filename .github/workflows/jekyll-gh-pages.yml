@@ -1,51 +1,42 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+# Простой рабочий процесс для развертывания статического контента на GitHub Pages
+name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Запускается при отправке изменений в ветку "main"
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Позволяет запускать этот рабочий процесс вручную на вкладке Actions
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Устанавливает права для GITHUB_TOKEN для развертывания на GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Разрешает только одно одновременное развертывание
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build job
-  build:
+  # Задача развертывания
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+        with:
+          # Загрузить все содержимое репозитория
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
