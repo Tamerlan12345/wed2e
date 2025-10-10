@@ -5,21 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тамерлан & Ясмина | Приглашение на свадьбу</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
 
-    <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
-    <!-- 2GIS Map API -->
     <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
 
-    <!-- Supabase JS Client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
@@ -37,7 +32,7 @@
     </div>
 
     <header class="hero">
-        <img src="photo_5341489142447602236_y.png" alt="Тамерлан & Ясмина" class="hero-bg-img">
+        <img src="./photo_5341489142447602236_y.png" alt="Тамерлан & Ясмина" class="hero-bg-img">
         <div class="hero-content">
             <h2 class="couple-names" id="couple-names-heading"></h2>
         </div>
@@ -67,13 +62,13 @@
             <h3 class="section-title" data-animated>Мы</h3>
             <div class="gallery-container">
                 <div class="gallery-item">
-                    <img src="IMG_8288.jpeg" alt="История Тамерлана & Ясмины 2">
+                    <img src="./IMG_8288.jpeg" alt="История Тамерлана & Ясмины 2">
                 </div>
                 <div class="gallery-item">
-                    <img src="IMG_8287.jpeg" alt="История Тамерлана & Ясмины 1">
+                    <img src="./IMG_8287.jpeg" alt="История Тамерлана & Ясмины 1">
                 </div>
                 <div class="gallery-item">
-                    <img src="IMG_8289.jpeg" alt="История Тамерлана & Ясмины 3">
+                    <img src="./IMG_8289.jpeg" alt="История Тамерлана & Ясмины 3">
                 </div>
             </div>
             <p class="story-text text-with-bg">Разделяя одну мечту на двоих,  решили соединить наши сердца. Будем рады видеть вас на нашем празднике любви.</p>
@@ -140,8 +135,7 @@
                 <button type="submit" class="rsvp-submit-button">Отправить</button>
             </form>
             <div id="rsvp-message" class="rsvp-message" style="display: none;">
-                <!-- Success/error message will be inserted here -->
-            </div>
+                </div>
         </section>
 
         <div class="section-divider"></div>
@@ -155,8 +149,7 @@
             <a href="https://2gis.kz/almaty/firm/70000001024247901" target="_blank" class="address-link">2ГИС ссылка</a>
             <p class="full-address">улица Умурзакова, 76, Алматы</p>
             <div id="map" class="map-wrapper">
-                <!-- 2GIS Map will be initialized here by script.js -->
-            </div>
+                </div>
         </section>
     </main>
 
@@ -165,14 +158,13 @@
         <p class="couple-names-footer">Тамерлан & Ясмина</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 
     <audio id="background-music" loop muted>
-        <source src="music/background.mp3" type="audio/mpeg">
+        <source src="./music/background.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Instructional Modal -->
     <div id="instruction-modal" class="instruction-modal">
         <div class="instruction-modal-content">
             <p>Пролистайте вниз, чтобы подтвердить свое присутствие</p>
