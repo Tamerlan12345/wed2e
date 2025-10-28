@@ -6,30 +6,30 @@ class LeoparParser:
     def __init__(self):
         self.config = configparser.ConfigParser()
         self.config.read('config/config.ini')
-        self.username = self.config.get('leopar.kz', 'username')
-        self.password = self.config.get('leopar.kz', 'password')
+        self.username = self.config.get('leopart.kz', 'username')
+        self.password = self.config.get('leopart.kz', 'password')
         self.session = requests.Session()
         self.login()
 
     def login(self):
-        login_url = 'https://leopar.kz/login'  # Assuming this is the login URL
+        login_url = 'https://www.leopart.kz/login'  # Assuming this is the login URL
         login_data = {
             'username': self.username,
             'password': self.password
         }
         response = self.session.post(login_url, data=login_data)
         if response.status_code == 200:
-            print("Successfully logged in to leopar.kz")
+            print("Successfully logged in to leopart.kz")
         else:
-            print("Failed to log in to leopar.kz")
+            print("Failed to log in to leopart.kz")
 
     def search_by_vin(self, vin):
-        search_url = f'https://leopar.kz/search?vin={vin}'  # Assuming this is the search URL
+        search_url = f'https://www.leopart.kz/search?vin={vin}'  # Assuming this is the search URL
         response = self.session.get(search_url)
         if response.status_code == 200:
             return self.parse_results(response.text)
         else:
-            print(f"Failed to search for VIN {vin} on leopar.kz")
+            print(f"Failed to search for VIN {vin} on leopart.kz")
             return None
 
     def parse_results(self, html):

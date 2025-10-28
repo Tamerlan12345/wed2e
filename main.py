@@ -10,20 +10,17 @@ def main():
     # List of VIN codes to process
     vin_codes = ['VIN1', 'VIN2', 'VIN3'] # Replace with actual VIN codes
 
+    # Initialize parsers
+    leopar_parser = LeoparParser()
+    emex_parser = EmexParser()
+
     for vin in vin_codes:
         logging.info(f"Processing VIN: {vin}")
 
         try:
-            # Initialize parsers
-            leopar_parser = LeoparParser()
-            emex_parser = EmexParser()
-
             # Scrape data
             leopar_data = leopar_parser.search_by_vin(vin)
             emex_data = emex_parser.search_by_vin(vin)
-
-            # Close the browser
-            emex_parser.close()
 
             # Analyze and report
             if leopar_data or emex_data:
@@ -44,6 +41,9 @@ def main():
         except Exception as e:
             logging.error(f"An error occurred while processing VIN {vin}: {e}")
             continue # Continue to the next VIN
+
+    # Close the browser
+    emex_parser.close()
 
 if __name__ == '__main__':
     main()
